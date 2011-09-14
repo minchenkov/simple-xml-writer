@@ -43,9 +43,9 @@ Output:
         <value>foo</value>
         <empty_node/>
         <c:value>
-          <encoding quotes="&#34;&#34;">
+          <encoding quotes="&quot;&quot;">
             <dd>foobar</dd>
-            tags:  &#60;br /&#62;
+            tags:  &lt;br /&gt;
           </encoding>
           text
         </c:value>
