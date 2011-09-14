@@ -1,0 +1,23 @@
+{
+    "name": "simple-xml-writer",
+    "version": "0.0.1",
+    "description": "Tiny and simple XML writer util for NodeJS",
+    "keywords": [
+        "xml",
+        "writer"
+    ],
+    "main": "./lib/simple-xml-writer",
+    "author": "Pavel Minchenkov <pavel@metahouse.ru>",
+    "engines" : {
+        "node" : ">=0.4.0"
+    },
+    "dependencies": {
+		"node-html-encoder" : "0.0.1"
+	},
+    "homepage": "https://github.com/minchenkov/simple-xml-writer",
+    "repository" :
+    {
+        "type" : "git",
+        "url" : "git://github.com/minchenkov/simple-xml-writer.git"
+    }
+}
