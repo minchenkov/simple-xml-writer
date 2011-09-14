@@ -7,7 +7,7 @@ Tiny and simple XML writer util for NodeJS
 
 ## Examples
 
-    var XmlWriter = require('../lib/simple-xml-writer.js').XmlWriter;
+    var XmlWriter = require('simple-xml-writer').XmlWriter;
 
     var data = new XmlWriter(function(el) {
         el('root', function(el, at) {
