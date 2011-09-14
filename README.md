@@ -1,4 +1,4 @@
-# node-html-encoder
+# simple-xml-writer
 
 Tiny and simple XML writer util for NodeJS
 
