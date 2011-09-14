@@ -12,8 +12,8 @@
         "node" : ">=0.4.0"
     },
     "dependencies": {
-		"node-html-encoder" : "0.0.1"
-	},
+        "node-html-encoder" : "0.0.1"
+    },
     "homepage": "https://github.com/minchenkov/simple-xml-writer",
     "repository" :
     {

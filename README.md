@@ -7,22 +7,47 @@ Tiny and simple XML writer util for NodeJS
 
 ## Examples
 
-    var Encoder = require('node-html-encoder').Encoder;
+    var XmlWriter = require('../lib/simple-xml-writer.js').XmlWriter;
 
-    // entity type encoder
-    var encoder = new Encoder('entity');
+    var data = new XmlWriter(function(el) {
+        el('root', function(el, at) {
+            at('xmlns:c', 'http://schemas.xmlsoap.org/wsdl/');
+            el('node', function(el, at) {
+                at('name', 'foo');
+                at('null_attr');
+                at('empty_attr', '');
 
-    console.log(encoder.htmlEncode('<foo /> "bar"'))
-    // prints &lt;foo /&gt; &quot;bar&quot;
+                el('value', 'foo');
+                el('null_node');
+                el('empty_node', '');
+                el('c:value', 'text', function(el) {
+                    el('encoding', 'tags:  <br />', function(el, at, text) {
+                        at('quotes', '""');
+                        el('dd', function(el, at, text) {
+                            text('foo')
+                            text('bar')
+                        })
+                    });
+                });
+            });
+        });
+    }, { addDeclaration: true });
 
-    console.log(encoder.htmlDecode('&lt;foo /&gt; &quot;bar&quot;'))
-    // prints <foo /> "bar"
+    console.log(data.toString());
 
-    // numerical type encoder
-    encoder = new Encoder('numerical');
+Output:
 
-    console.log(encoder.htmlEncode('<foo /> "bar"'))
-    // prints &#60;foo /&#62; &#34;bar&#34;
-
-    console.log(encoder.htmlDecode('&#60;foo /&#62; &#34;bar&#34;'))
-    // prints <foo /> "bar"
+    <?xml version="1.0" encoding="UTF-8"?>
+    <root xmlns:c="http://schemas.xmlsoap.org/wsdl/">
+      <node name="foo" empty_attr="">
+        <value>foo</value>
+        <empty_node/>
+        <c:value>
+          <encoding quotes="&#34;&#34;">
+            <dd>foobar</dd>
+            tags:  &#60;br /&#62;
+          </encoding>
+          text
+        </c:value>
+      </node>
+    </root>
