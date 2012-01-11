@@ -1,6 +1,6 @@
 {
     "name": "simple-xml-writer",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Tiny and simple XML writer util for NodeJS",
     "keywords": [
         "xml",

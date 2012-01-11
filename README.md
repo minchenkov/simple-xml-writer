@@ -20,6 +20,7 @@ Tiny and simple XML writer util for NodeJS
                 el('value', 'foo');
                 el('null_node');
                 el('empty_node', '');
+                el('encode', 'тест ß');
                 el('c:value', 'text', function(el) {
                     el('encoding', 'tags:  <br />', function(el, at, text) {
                         at('quotes', '""');
@@ -42,10 +43,11 @@ Output:
       <node name="foo" empty_attr="">
         <value>foo</value>
         <empty_node/>
+        <encode>&#1090;&#1077;&#1089;&#1090; &#223;</encode>
         <c:value>
-          <encoding quotes="&quot;&quot;">
+          <encoding quotes="&#34;&#34;">
             <dd>foobar</dd>
-            tags:  &lt;br /&gt;
+            tags:  &#60;br /&#62;
           </encoding>
           text
         </c:value>
